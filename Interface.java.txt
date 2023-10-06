@@ -1,0 +1,53 @@
+package test;
+
+interface Searchable 
+{
+boolean search(String keyword);
+}
+
+class Document implements Searchable
+{
+public String content;
+
+public Document(String content)
+{
+  this.content = content;
+}
+
+public boolean search(String keyword)
+{
+	if(content.contentEquals(keyword))
+	{
+		return true;
+	}
+  return false;
+}
+
+class WebPage implements Searchable 
+{
+	public boolean search(String keyword)
+	{
+		if(content.contentEquals(keyword))
+		{
+			return true;
+		}			
+		return false;
+	}
+
+}
+
+public class Main
+{
+	public static void main(String[] args) {
+
+	Document d=new Document("Hello, this is a test program");
+	System.out.println("The serach result in the document is "+d.search("Test"));
+	WebPage w=new WebPage();
+	System.out.println("The serach result for the URL  is "+d.search("google"));
+	}
+}
+
+
+
+
+	
